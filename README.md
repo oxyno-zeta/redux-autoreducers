@@ -1,0 +1,2 @@
+# redux-autoreducers
+Redux Autoreducers
