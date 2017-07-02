@@ -1,0 +1,20 @@
+{
+  "all": true,
+  "extension": [
+    ".js"
+  ],
+  "include": [
+    "src/**/*.js"
+  ],
+  "report-dir": "./results/coverage",
+  "cache": false,
+  "exclude": [
+    "test/**/*",
+    "results/**/*"
+  ],
+  "reporter": [
+    "lcov",
+    "cobertura",
+    "text-summary"
+  ]
+}
