@@ -391,7 +391,7 @@ describe('Generator', () => {
             oldValueInitialState = defaults.getGenerateInitialState();
             oldValueReducer = defaults.getGenerateReducer();
             oldValueActionTransformer = defaults.getActionTransformer();
-            oldValueSuffixesTypes = { ...defaults.defaultTypesSuffixes };
+            oldValueSuffixesTypes = { ...defaults.defaultTypeSuffixes };
             lib = index;
         });
 
@@ -399,7 +399,7 @@ describe('Generator', () => {
             lib.overrideGenerateInitialState(oldValueInitialState);
             lib.overrideGenerateReducer(oldValueReducer);
             lib.overrideActionTransformer(oldValueActionTransformer);
-            lib.overrideDefaultTypesSuffixes(oldValueSuffixesTypes);
+            lib.overrideDefaultTypeSuffixes(oldValueSuffixesTypes);
         });
 
         it('should be ok with override initial state and reducer function', () => {
@@ -409,23 +409,23 @@ describe('Generator', () => {
                 [`${lowerCamelCaseType}Data`]: null,
                 [`${lowerCamelCaseType}Error`]: null,
             }));
-            lib.overrideGenerateReducer((type, lowerCamelCaseType, typesSuffixes) => ({
+            lib.overrideGenerateReducer((type, lowerCamelCaseType, typeSuffixes) => ({
                 [type]: {
-                    [typesSuffixes.PENDING]: state => ({
+                    [typeSuffixes.PENDING]: state => ({
                         ...state,
                         [`is${lowerCamelCaseType}Pending`]: true,
                         [`${lowerCamelCaseType}Data`]: null,
                         [`${lowerCamelCaseType}Paging`]: null,
                         [`${lowerCamelCaseType}Error`]: null,
                     }),
-                    [typesSuffixes.FULFILLED]: (state, action) => ({
+                    [typeSuffixes.FULFILLED]: (state, action) => ({
                         ...state,
                         [`is${lowerCamelCaseType}Pending`]: false,
                         [`${lowerCamelCaseType}Data`]: action.data,
                         [`${lowerCamelCaseType}Paging`]: action.paging,
                         [`${lowerCamelCaseType}Error`]: null,
                     }),
-                    [typesSuffixes.REJECTED]: (state, action) => ({
+                    [typeSuffixes.REJECTED]: (state, action) => ({
                         ...state,
                         [`is${lowerCamelCaseType}Pending`]: false,
                         [`${lowerCamelCaseType}Data`]: null,
@@ -523,23 +523,23 @@ describe('Generator', () => {
                 [`${lowerCamelCaseType}Data`]: null,
                 [`${lowerCamelCaseType}Error`]: null,
             }));
-            lib.overrideGenerateReducer((type, lowerCamelCaseType, typesSuffixes) => ({
+            lib.overrideGenerateReducer((type, lowerCamelCaseType, typeSuffixes) => ({
                 [type]: {
-                    [typesSuffixes.PENDING]: state => ({
+                    [typeSuffixes.PENDING]: state => ({
                         ...state,
                         [`is${lowerCamelCaseType}Pending`]: true,
                         [`${lowerCamelCaseType}Data`]: null,
                         [`${lowerCamelCaseType}Paging`]: null,
                         [`${lowerCamelCaseType}Error`]: null,
                     }),
-                    [typesSuffixes.FULFILLED]: (state, action) => ({
+                    [typeSuffixes.FULFILLED]: (state, action) => ({
                         ...state,
                         [`is${lowerCamelCaseType}Pending`]: false,
                         [`${lowerCamelCaseType}Data`]: action.data,
                         [`${lowerCamelCaseType}Paging`]: action.paging,
                         [`${lowerCamelCaseType}Error`]: null,
                     }),
-                    [typesSuffixes.REJECTED]: (state, action) => ({
+                    [typeSuffixes.REJECTED]: (state, action) => ({
                         ...state,
                         [`is${lowerCamelCaseType}Pending`]: false,
                         [`${lowerCamelCaseType}Data`]: null,

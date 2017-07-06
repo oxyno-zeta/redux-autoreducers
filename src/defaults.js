@@ -12,12 +12,12 @@ import capitalize from 'capitalize';
 /* ************************************* */
 /* ********      VARIABLES      ******** */
 /* ************************************* */
-const defaultTypesSuffixes = {
+const defaultTypeSuffixes = {
     PENDING: 'PENDING',
     REJECTED: 'REJECTED',
     FULFILLED: 'FULFILLED',
 };
-const allowedKeys = Object.keys(defaultTypesSuffixes);
+const allowedKeys = Object.keys(defaultTypeSuffixes);
 
 const defaultGenerator = {
     defaultActionTransformer,
@@ -32,11 +32,11 @@ const defaultGenerator = {
 /* ************************************* */
 /* ********       EXPORTS       ******** */
 /* ************************************* */
-export { defaultTypesSuffixes };
+export { defaultTypeSuffixes };
 export { getGenerateReducer };
 export { getGenerateInitialState };
 export { getActionTransformer };
-export { overrideDefaultTypesSuffixes };
+export { overrideDefaultTypeSuffixes };
 export { overrideGenerateInitialState };
 export { overrideGenerateReducer };
 export { overrideActionTransformer };
@@ -71,25 +71,25 @@ function defaultGenerateInitialState(lowerCamelCaseType) {
  * Generate Reducer.
  * @param type
  * @param lowerCamelCaseType
- * @param typesSuffixes
+ * @param typeSuffixes
  * @returns {{}}
  */
-function defaultGenerateReducer(type, lowerCamelCaseType, typesSuffixes) {
+function defaultGenerateReducer(type, lowerCamelCaseType, typeSuffixes) {
     return {
         [type]: {
-            [typesSuffixes.PENDING]: state => ({
+            [typeSuffixes.PENDING]: state => ({
                 ...state,
                 [`is${capitalize(lowerCamelCaseType)}Pending`]: true,
                 [`${lowerCamelCaseType}Data`]: null,
                 [`${lowerCamelCaseType}Error`]: null,
             }),
-            [typesSuffixes.FULFILLED]: (state, action) => ({
+            [typeSuffixes.FULFILLED]: (state, action) => ({
                 ...state,
                 [`is${capitalize(lowerCamelCaseType)}Pending`]: false,
                 [`${lowerCamelCaseType}Data`]: action.data,
                 [`${lowerCamelCaseType}Error`]: null,
             }),
-            [typesSuffixes.REJECTED]: (state, action) => ({
+            [typeSuffixes.REJECTED]: (state, action) => ({
                 ...state,
                 [`is${capitalize(lowerCamelCaseType)}Pending`]: false,
                 [`${lowerCamelCaseType}Data`]: null,
@@ -162,15 +162,15 @@ function overrideGenerateInitialState(newGenerateInitialState) {
 
 /**
  * Override default types suffixes.
- * @param newDefaultTypesSuffixes
+ * @param newDefaultTypeSuffixes
  */
-function overrideDefaultTypesSuffixes(newDefaultTypesSuffixes) {
-    if (newDefaultTypesSuffixes === null
-        || typeof newDefaultTypesSuffixes !== 'object'
-        || Array.isArray(newDefaultTypesSuffixes)) {
+function overrideDefaultTypeSuffixes(newDefaultTypeSuffixes) {
+    if (newDefaultTypeSuffixes === null
+        || typeof newDefaultTypeSuffixes !== 'object'
+        || Array.isArray(newDefaultTypeSuffixes)) {
         throw new Error('Default types suffixes must be an object');
     }
-    const keys = Object.keys(newDefaultTypesSuffixes);
+    const keys = Object.keys(newDefaultTypeSuffixes);
     if (keys.length === 0) {
         throw new Error(`Default types suffixes object must have keys in [${allowedKeys.toString()}]`);
     }
@@ -180,8 +180,8 @@ function overrideDefaultTypesSuffixes(newDefaultTypesSuffixes) {
         }
     });
 
-    const { PENDING, REJECTED, FULFILLED } = newDefaultTypesSuffixes;
-    defaultTypesSuffixes.PENDING = PENDING;
-    defaultTypesSuffixes.REJECTED = REJECTED;
-    defaultTypesSuffixes.FULFILLED = FULFILLED;
+    const { PENDING, REJECTED, FULFILLED } = newDefaultTypeSuffixes;
+    defaultTypeSuffixes.PENDING = PENDING;
+    defaultTypeSuffixes.REJECTED = REJECTED;
+    defaultTypeSuffixes.FULFILLED = FULFILLED;
 }

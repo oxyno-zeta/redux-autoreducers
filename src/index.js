@@ -10,7 +10,7 @@
 import Rule from './Rule';
 import Generator from './Generator';
 import {
-    overrideDefaultTypesSuffixes,
+    overrideDefaultTypeSuffixes,
     overrideGenerateReducer,
     overrideGenerateInitialState,
     overrideActionTransformer,
@@ -25,7 +25,7 @@ import {
 /* ************************************* */
 export { Rule };
 export { Generator };
-export { overrideDefaultTypesSuffixes };
+export { overrideDefaultTypeSuffixes };
 export { overrideGenerateInitialState };
 export { overrideGenerateReducer };
 export { overrideActionTransformer };

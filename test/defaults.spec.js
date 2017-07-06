@@ -27,52 +27,52 @@ describe('defaults', () => {
         lib = null;
     });
 
-    describe('overrideDefaultTypesSuffixes', () => {
+    describe('overrideDefaultTypeSuffixes', () => {
         it('should fail when override default types suffixes with "undefined"', () => {
             const func = () => {
-                lib.overrideDefaultTypesSuffixes(undefined);
+                lib.overrideDefaultTypeSuffixes(undefined);
             };
             expect(func).to.throw(Error, 'Default types suffixes must be an object');
         });
 
         it('should fail when override default types suffixes with "null"', () => {
             const func = () => {
-                lib.overrideDefaultTypesSuffixes(null);
+                lib.overrideDefaultTypeSuffixes(null);
             };
             expect(func).to.throw(Error, 'Default types suffixes must be an object');
         });
 
         it('should fail when override default types suffixes with a number', () => {
             const func = () => {
-                lib.overrideDefaultTypesSuffixes(1);
+                lib.overrideDefaultTypeSuffixes(1);
             };
             expect(func).to.throw(Error, 'Default types suffixes must be an object');
         });
 
         it('should fail when override default types suffixes with a string', () => {
             const func = () => {
-                lib.overrideDefaultTypesSuffixes('1');
+                lib.overrideDefaultTypeSuffixes('1');
             };
             expect(func).to.throw(Error, 'Default types suffixes must be an object');
         });
 
         it('should fail when override default types suffixes with a function', () => {
             const func = () => {
-                lib.overrideDefaultTypesSuffixes(() => {});
+                lib.overrideDefaultTypeSuffixes(() => {});
             };
             expect(func).to.throw(Error, 'Default types suffixes must be an object');
         });
 
         it('should fail when override default types suffixes with an array', () => {
             const func = () => {
-                lib.overrideDefaultTypesSuffixes([]);
+                lib.overrideDefaultTypeSuffixes([]);
             };
             expect(func).to.throw(Error, 'Default types suffixes must be an object');
         });
 
         it('should fail when override default types suffixes with an empty object', () => {
             const func = () => {
-                lib.overrideDefaultTypesSuffixes({});
+                lib.overrideDefaultTypeSuffixes({});
             };
             expect(func).to.throw(Error, 'Default types suffixes object must have keys in' +
                 ' [PENDING,REJECTED,FULFILLED]');
@@ -80,7 +80,7 @@ describe('defaults', () => {
 
         it('should fail when override default types suffixes with an unwanted key', () => {
             const func = () => {
-                lib.overrideDefaultTypesSuffixes({ testKey: 'value1' });
+                lib.overrideDefaultTypeSuffixes({ testKey: 'value1' });
             };
             expect(func).to.throw(Error, '"testKey" must be in [PENDING,REJECTED,FULFILLED]');
         });
