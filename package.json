@@ -6,9 +6,8 @@
   "scripts": {
     "lint": "eslint src/ test/",
     "test": "nyc mocha",
-    "coverage": "npm run test && concurrently \"npm run coveralls\" \"npm run codecov\"",
-    "coveralls": "shx cat ./results/coverage/lcov.info | coveralls",
-    "codecov": "codecov -f ./results/coverage/lcov.info"
+    "coverage": "npm run test && npm run coveralls",
+    "coveralls": "shx cat ./results/coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -31,7 +30,6 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "^6.23.0",
     "chai": "^4.0.2",
-    "codecov": "^2.2.0",
     "concurrently": "^3.5.0",
     "coveralls": "^2.13.1",
     "eslint": "^3.0.0",
