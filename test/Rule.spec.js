@@ -327,7 +327,7 @@ describe('Rule : Override default types suffixes', () => {
         // eslint-disable-next-line global-require
         const defaults = require('../src/defaults');
         Rule = index.Rule;
-        oldValue = { ...defaults.defaultTypeSuffixes };
+        oldValue = defaults.getDefaultTypeSuffixes();
         index.overrideDefaultTypeSuffixes({
             PENDING: 'LOADING',
             REJECTED: 'ERROR',

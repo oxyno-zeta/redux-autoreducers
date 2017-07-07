@@ -391,7 +391,7 @@ describe('Generator', () => {
             oldValueInitialState = defaults.getGenerateInitialState();
             oldValueReducer = defaults.getGenerateReducer();
             oldValueActionTransformer = defaults.getActionTransformer();
-            oldValueSuffixesTypes = { ...defaults.defaultTypeSuffixes };
+            oldValueSuffixesTypes = defaults.getDefaultTypeSuffixes();
             lib = index;
         });
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src/ test/",
-    "test": "nyc mocha",
+    "test": "shx rm -rf results && nyc mocha",
     "coverage": "npm run test && npm run coveralls",
     "coveralls": "shx cat ./results/coverage/lcov.info | coveralls"
   },

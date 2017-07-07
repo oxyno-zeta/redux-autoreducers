@@ -18,9 +18,12 @@ chai.use(sinonChai);
 
 describe('defaults', () => {
     let lib;
+    let defaults;
     before(() => {
         // eslint-disable-next-line global-require
         lib = require('../src/index');
+        // eslint-disable-next-line global-require
+        defaults = require('../src/defaults');
     });
 
     after(() => {
@@ -74,15 +77,14 @@ describe('defaults', () => {
             const func = () => {
                 lib.overrideDefaultTypeSuffixes({});
             };
-            expect(func).to.throw(Error, 'Default types suffixes object must have keys in' +
-                ' [PENDING,REJECTED,FULFILLED]');
+            expect(func).to.throw(Error, 'Default types suffixes object must have keys');
         });
 
-        it('should fail when override default types suffixes with an unwanted key', () => {
-            const func = () => {
-                lib.overrideDefaultTypeSuffixes({ testKey: 'value1' });
-            };
-            expect(func).to.throw(Error, '"testKey" must be in [PENDING,REJECTED,FULFILLED]');
+        it('should be ok when override default types suffixes with other keys', () => {
+            const data = { testKey: 'value1' };
+            lib.overrideDefaultTypeSuffixes(data);
+            const result = defaults.getDefaultTypeSuffixes();
+            expect(result).to.deep.equal(data);
         });
     });
 

@@ -9,7 +9,7 @@
 /* ************************************* */
 import { snakeToLowerCamel } from './utils';
 import {
-    defaultTypeSuffixes,
+    getDefaultTypeSuffixes,
     getGenerateInitialState,
     getGenerateReducer,
     getActionTransformer,
@@ -32,7 +32,7 @@ class Rule {
         this.generateReducer = getGenerateReducer();
         this.generateInitialState = getGenerateInitialState();
         this.actionTransformer = getActionTransformer();
-        this.typeSuffixes = { ...defaultTypeSuffixes };
+        this.typeSuffixes = getDefaultTypeSuffixes();
     }
 
     overrideReducer(overrideGenerateReducer) {

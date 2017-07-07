@@ -12,12 +12,11 @@ import capitalize from 'capitalize';
 /* ************************************* */
 /* ********      VARIABLES      ******** */
 /* ************************************* */
-const defaultTypeSuffixes = {
+let defaultTypeSuffixes = {
     PENDING: 'PENDING',
     REJECTED: 'REJECTED',
     FULFILLED: 'FULFILLED',
 };
-const allowedKeys = Object.keys(defaultTypeSuffixes);
 
 const defaultGenerator = {
     defaultActionTransformer,
@@ -32,7 +31,7 @@ const defaultGenerator = {
 /* ************************************* */
 /* ********       EXPORTS       ******** */
 /* ************************************* */
-export { defaultTypeSuffixes };
+export { getDefaultTypeSuffixes };
 export { getGenerateReducer };
 export { getGenerateInitialState };
 export { getActionTransformer };
@@ -172,16 +171,16 @@ function overrideDefaultTypeSuffixes(newDefaultTypeSuffixes) {
     }
     const keys = Object.keys(newDefaultTypeSuffixes);
     if (keys.length === 0) {
-        throw new Error(`Default types suffixes object must have keys in [${allowedKeys.toString()}]`);
+        throw new Error('Default types suffixes object must have keys');
     }
-    keys.forEach((key) => {
-        if (allowedKeys.indexOf(key) === -1) {
-            throw new Error(`"${key}" must be in [${allowedKeys.toString()}]`);
-        }
-    });
 
-    const { PENDING, REJECTED, FULFILLED } = newDefaultTypeSuffixes;
-    defaultTypeSuffixes.PENDING = PENDING;
-    defaultTypeSuffixes.REJECTED = REJECTED;
-    defaultTypeSuffixes.FULFILLED = FULFILLED;
+    defaultTypeSuffixes = { ...newDefaultTypeSuffixes };
+}
+
+/**
+ * Get Default Type Suffixes.
+ * @returns {{PENDING: string, REJECTED: string, FULFILLED: string}}
+ */
+function getDefaultTypeSuffixes() {
+    return defaultTypeSuffixes;
 }
