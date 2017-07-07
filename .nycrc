@@ -8,6 +8,8 @@
   ],
   "report-dir": "./results/coverage",
   "cache": false,
+  "sourceMap": false,
+  "instrument": false,
   "exclude": [
     "test/**/*",
     "results/**/*"
