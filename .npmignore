@@ -190,17 +190,13 @@ tramp
 .Trash-*
 
 # Project
+.nyc_output/
+results/
 src/
-gulp/
-dev/
-dev_build/
-docs/
-.github/
-gulpfile.js
-.travis.yml
-.gitignore
+test/
 .babelrc
 .eslintrc.json
+.gitignore
+.nycrc
+.travis.yml
 yarn.lock
-circle.yml
-.nyc_output/
