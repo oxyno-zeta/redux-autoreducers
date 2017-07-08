@@ -199,4 +199,5 @@ test/
 .gitignore
 .nycrc
 .travis.yml
+HOW-TO-BUILD-RELEASE.md
 yarn.lock
