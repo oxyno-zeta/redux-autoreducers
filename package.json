@@ -2,7 +2,7 @@
   "name": "redux-autoreducers",
   "version": "1.0.0",
   "description": "Redux Autoreducers",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint src/ test/",
     "test": "shx rm -Rf results && cross-env NODE_ENV=test nyc mocha",
