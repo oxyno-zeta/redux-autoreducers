@@ -1,6 +1,6 @@
 Redux Autoreducers
 ==================
-[![npm](https://img.shields.io/npm/v/redux-autoreducers.svg)]()[![Build Status](https://travis-ci.org/oxyno-zeta/redux-autoreducers.svg?branch=master)](https://travis-ci.org/oxyno-zeta/redux-autoreducers)[![Coverage Status](https://coveralls.io/repos/github/oxyno-zeta/redux-autoreducers/badge.svg?branch=master)](https://coveralls.io/github/oxyno-zeta/redux-autoreducers?branch=master)
+[![npm](https://img.shields.io/npm/v/redux-autoreducers.svg)]()[![Build Status](https://travis-ci.org/oxyno-zeta/redux-autoreducers.svg?branch=master)](https://travis-ci.org/oxyno-zeta/redux-autoreducers)[![Coverage Status](https://coveralls.io/repos/github/oxyno-zeta/redux-autoreducers/badge.svg?branch=master)](https://coveralls.io/github/oxyno-zeta/redux-autoreducers?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/oxyno-zeta/redux-autoreducers.svg)](https://greenkeeper.io/)
 
 ## Features
 The aim of this library is to automatically generate reducers for redux.
